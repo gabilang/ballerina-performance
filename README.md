@@ -1,16 +1,18 @@
 # ballerina-performance
 ### Summary of performance test results
 The following is the summary of performance test results collected for the h1-h1-passthrough scenario.  
+
 Number of concurrent users: 100  
+Loop count: 10000  
 Protocol: https  
 Duration: 1800s    
+Ramp-up period: 60s  
 
-| Version | Message Size (Bytes) | Average Response Time (ms) | Standard Deviation of Response Time (ms) | Error % | Throughput (Requests/sec) | Throughput (KB/s) |
-| --- | --- | --- | --- | --- | --- | --- |
-| 2201.0.0 | 1024 | 43.28 | 43.33 | 0.00% | 2249.23 | 2532.6 | 
-| slbeta3 | 1024 | 43.24 | 43.25 | 0.00% | 2239.13 | 2521.19 |
-| slalpha5 | 1024 |
-| v1.2.23 | 1024 | 56.38 | 56.78 | 0.00% | 1730.9 | 1948.93 |
+| Version | Message Size (Bytes) | Average Response Time (ms) | Standard Deviation of Response Time (ms) | Error % | Throughput (Requests/sec) | Throughput (KB/s) | build time (ms) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2201.0.0 | 1024 | 83 | 58.26 | 0.00% | 1113.6 | 1253.87 | 13440 |
+| slbeta3 | 1024 | 94.5 | 67.52 | 0.00% | 1007.9 | 1134.89 | 14310 |
+| v1.2.23 | 1024 | 133.34 | 85.16 | 0.00% | 718.37 | 808.89 | 38438 |
 
 
 ### Setting Up the performance test environment in local machine
@@ -52,7 +54,7 @@ Duration: 1800s
     ```
 6. To run the load test using JMeter
     ```
-    $ jmeter -n -t ./resources/jmeter/http-post-request.jmx -l results.jtl -Jusers=100 -Jduration=1800 -JrampUpPeriod=300 -Jhost=192.168.49.2 -Jport=<NodePort> -Jprotocol=https -Jpath=passthrough -Jpayload="./resources/payload/1024B.json" -Jresponse_size=1024
+    $ jmeter -n -t ./resources/jmeter/http-post-request.jmx -l results.jtl -Jusers=100 -Jduration=1800 -JrampUpPeriod=60 -Jhost=localhost -Jport=<NodePort> -Jprotocol=https -Jpath=passthrough -Jpayload="./resources/payload/1024B.json" -Jresponse_size=1024
     ```
 
 
