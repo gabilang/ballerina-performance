@@ -1,0 +1,7 @@
+[package]
+org = "gabilantgg"
+name = "slga_passthrough"
+version = "1.0.0"
+
+[build-options]
+cloud = "k8s"
