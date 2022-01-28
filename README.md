@@ -4,8 +4,7 @@ The following is the summary of performance test results collected for the h1-h1
 
 Number of concurrent users: 100  
 Loop count: 10000  
-Protocol: https  
-Duration: 1800s    
+Protocol: https      
 Ramp-up period: 60s  
 
 | Version | Message Size (Bytes) | Average Response Time (ms) | Standard Deviation of Response Time (ms) | Error % | Throughput (Requests/sec) | Throughput (KB/s) | build time (ms) |
