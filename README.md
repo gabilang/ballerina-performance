@@ -10,11 +10,12 @@ Ramp-up period: 60s
 | Version | Message Size (Bytes) | Average Response Time (ms) | Standard Deviation of Response Time (ms) | Error % | Throughput (Requests/sec) | Throughput (KB/s) | build time (ms) | JAR size (MB) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2201.0.0 | 1024 | 83 | 58.26 | 0.00% | 1113.6 | 1253.87 | 13260 | 27.7 |
+| slbeta6 | 1024 | 87 | 75.30 | 0.00% | 1094.3 | 1232.18 | 14453 | 29.8 |
 | slbeta3 | 1024 | 94.5 | 67.52 | 0.00% | 1007.9 | 1134.89 | 14310 | 29.5 |
 | v1.2.23 | 1024 | 133.34 | 85.16 | 0.00% | 718.37 | 808.89 | 38438 | 26.7 |
 
 
-### Setting Up the performance test environment in local machine
+### Setting up the performance test environment in local machine
 #### Prerequisites
 1. Download and install docker, minikube and Kubernetes.
     - [Docker](https://docs.docker.com/engine/install/)
@@ -24,8 +25,16 @@ Ramp-up period: 60s
     ```
     $ minikube start
     ```
-#### Deploy netty backend to K8s (use the YAML file provided in ballerina-performance/deployment-netty-backend).
+#### Setting up and run Netty HTTP echo server  
+(Use the docker image of a netty http echo backend from `https://hub.docker.com/r/ldclakmal/netty-echo-backend`)
+1. Run the docker image  
+    ```
+    $ docker run -d -p 8688:8688 -e "SSL=true" ldclakmal/netty-echo-backend:latest
+    ```
+2. Deploy netty backend to K8s (use the YAML file provided in ballerina-performance/deployment-netty-backend).  
+    ```
     $ kubectl apply -f ./deployment-netty-backend/netty-backend.yaml
+    ```
     
 #### Building the source with specific version and deploy it to K8s.
 1. To build test scenario source
