@@ -7,11 +7,11 @@ Loop count: 10000
 Protocol: https      
 Ramp-up period: 60s  
 
-| Version | Message Size (Bytes) | Average Response Time (ms) | Standard Deviation of Response Time (ms) | Error % | Throughput (Requests/sec) | Throughput (KB/s) | build time (ms) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 2201.0.0 | 1024 | 83 | 58.26 | 0.00% | 1113.6 | 1253.87 | 13440 |
-| slbeta3 | 1024 | 94.5 | 67.52 | 0.00% | 1007.9 | 1134.89 | 14310 |
-| v1.2.23 | 1024 | 133.34 | 85.16 | 0.00% | 718.37 | 808.89 | 38438 |
+| Version | Message Size (Bytes) | Average Response Time (ms) | Standard Deviation of Response Time (ms) | Error % | Throughput (Requests/sec) | Throughput (KB/s) | build time (ms) | JAR size (MB) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2201.0.0 | 1024 | 83 | 58.26 | 0.00% | 1113.6 | 1253.87 | 13260 | 27.7 |
+| slbeta3 | 1024 | 94.5 | 67.52 | 0.00% | 1007.9 | 1134.89 | 14310 | 29.5 |
+| v1.2.23 | 1024 | 133.34 | 85.16 | 0.00% | 718.37 | 808.89 | 38438 | 26.7 |
 
 
 ### Setting Up the performance test environment in local machine
