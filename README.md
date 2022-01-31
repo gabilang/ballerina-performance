@@ -49,7 +49,7 @@ Ramp-up period: 60s
     ```
 5. To test the passthrough service
     ```
-    $ curl -kv -X POST https://192.168.49.2:<NodePort>/passthrough -d '{"size":"50B","payload":"0123456789ABCDEFGHIJKLM"}'
+    $ curl -kv -X POST https://localhost:<NodePort>/passthrough -d '{"size":"50B","payload":"0123456789ABCDEFGHIJKLM"}'
     ```
 6. To run the load test using JMeter
     ```
